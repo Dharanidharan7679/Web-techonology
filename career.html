@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Application Form</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #171a31;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  #<h2 class="mb-4 text-center text-light"><strong>Career Application Form</strong></h2>
+  <div class="form-container bg-info">
+    
+    <form class="needs-validation" id="jobApplicationForm" novalidate>
+
+      <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fullName" required>
+        <div class="invalid-feedback">Please enter your full name.</div>
+      </div>
+
+      
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="email" required>
+        <div class="invalid-feedback">Please enter a valid email.</div>
+      </div>
+
+     
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="phone" pattern="[0-9]{10}" required>
+        <div class="invalid-feedback">Please enter a valid 10-digit phone number.</div>
+      </div>
+
+      
+      <div class="mb-3">
+        <label for="age" class="form-label">Age</label>
+        <input type="number" class="form-control" id="age" min="18" required>
+        <div class="invalid-feedback">Please enter your age (18+).</div>
+      </div>
+
+      
+      <div class="mb-3">
+        <label for="experience" class="form-label">Experience (Years)</label>
+        <input type="number" class="form-control" id="experience" min="0" required>
+        <div class="invalid-feedback">Please enter your years of experience.</div>
+      </div>
+
+      
+      <div class="mb-3">
+        <label class="form-label d-block">Gender</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="male" value="Male" required>
+          <label class="form-check-label" for="male">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="female" value="Female" required>
+          <label class="form-check-label" for="female">Female</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="other" value="Other" required>
+          <label class="form-check-label" for="other">Other</label>
+        </div>
+        <div class="invalid-feedback d-block">Please select your gender.</div>
+      </div>
+
+      
+      <div class="mb-3">
+        <label for="position" class="form-label">Position Applying For</label>
+        <select class="form-select" id="position" required>
+          <option value="" disabled selected>Choose...</option>
+          <option>Site Engineer</option>
+          <option>Project Manager</option>
+          <option>Safety Officer</option>
+          <option>Surveyor</option>
+          <option>Other</option>
+        </select>
+        <div class="invalid-feedback">Please select a position.</div>
+      </div>
+
+      
+      <div class="mb-3">
+        <label for="coverLetter" class="form-label">Cover Letter</label>
+        <textarea class="form-control" id="coverLetter" rows="4" required></textarea>
+        <div class="invalid-feedback">Please write a brief cover letter.</div>
+      </div>
+
+      
+      <div class="d-flex justify-content-center gap-3">
+        <button class="btn btn-light" type="submit">Submit Application</button>
+        <button class="btn btn-light" type="button" onclick="clearForm()">Clear Form</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+  
+  (() => {
+    'use strict';
+    const form = document.querySelector('.needs-validation');
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  })();
+
+  
+  function clearForm() {
+    const form = document.getElementById('jobApplicationForm');
+    form.reset();
+    form.classList.remove('was-validated');
+  }
+</script>
+
+</body>
+</html>
